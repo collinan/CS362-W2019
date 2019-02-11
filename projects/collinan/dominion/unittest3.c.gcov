@@ -1,0 +1,21 @@
+        -:    0:Source:unittest3.c
+        -:    0:Graph:unittest3.gcno
+        -:    0:Data:unittest3.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "dominion.h"
+        -:    2:#include "dominion_helpers.h"
+        -:    3:#include "rngs.h"
+        -:    4:#include <stdio.h>
+        -:    5:#include <math.h>
+        -:    6:#include <stdlib.h>
+        -:    7:
+        -:    8:
+        -:    9://int compare(const void* a, const void* b) 
+        -:   10:
+function main called 1 returned 100% blocks executed 100%
+        1:   11:int main(){
+        -:   12:	
+        -:   13:	
+        1:   14:	return 0;
+        -:   15:}
