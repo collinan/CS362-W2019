@@ -50,6 +50,6 @@ call    0 never executed
         -:   35:
         -:   36:	}
         -:   37:
-        -:   38:
+        1:   38:free(teststate);
         1:   39:	return 0;
         -:   40:}

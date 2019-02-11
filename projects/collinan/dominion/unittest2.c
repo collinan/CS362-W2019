@@ -92,7 +92,7 @@ int main(){
 		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 	}
 
-
+free(teststate);
 	return 0;
 }
 

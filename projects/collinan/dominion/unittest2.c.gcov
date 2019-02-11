@@ -131,7 +131,7 @@ call    0 returned 100%
 call    0 returned 100%
         -:   93:	}
         -:   94:
-        -:   95:
+        1:   95:free(teststate);
         1:   96:	return 0;
         -:   97:}
         -:   98:

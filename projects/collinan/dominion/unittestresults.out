@@ -4,13 +4,13 @@ TEST PASSED: Values matchedExpected value: 1   whoseTurn function return value: 
 TEST PASSED: Values matchedExpected value: 2   whoseTurn function return value: 2
 TEST PASSED: Values matchedExpected value: 3   whoseTurn function return value: 3
 Function 'main'
-Lines executed:86.67% of 15
+Lines executed:87.50% of 16
 Branches executed:100.00% of 4
 Taken at least once:75.00% of 4
 Calls executed:60.00% of 5
 
 File 'unittest1.c'
-Lines executed:86.67% of 15
+Lines executed:87.50% of 16
 Branches executed:100.00% of 4
 Taken at least once:75.00% of 4
 Calls executed:60.00% of 5
@@ -23,13 +23,13 @@ TEST Failed: Values do not matchedExpected value: 8   updateCoins function retur
 TEST Failed: Values do not matchedExpected value: 4   updateCoins function return total: 0
 TEST Failed: Values do not matchedExpected value: 4   updateCoins function return total: 0
 Function 'main'
-Lines executed:85.71% of 56
+Lines executed:85.96% of 57
 Branches executed:100.00% of 16
 Taken at least once:75.00% of 16
 Calls executed:52.94% of 17
 
 File 'unittest2.c'
-Lines executed:85.71% of 56
+Lines executed:85.96% of 57
 Branches executed:100.00% of 16
 Taken at least once:75.00% of 16
 Calls executed:52.94% of 17
@@ -62,15 +62,18 @@ Creating 'unittest3.c.gcov'
 
 
 unittest4
+TEST PASSED: Values matchedExpected value: 4   numHandCards function return value: 4
 Function 'main'
-Lines executed:100.00% of 2
-No branches
-No calls
+Lines executed:84.62% of 13
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:60.00% of 5
 
 File 'unittest4.c'
-Lines executed:100.00% of 2
-No branches
-No calls
+Lines executed:84.62% of 13
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:60.00% of 5
 Creating 'unittest4.c.gcov'
 
 
@@ -239,9 +242,9 @@ No branches
 Calls executed:0.00% of 1
 
 Function 'numHandCards'
-Lines executed:0.00% of 2
+Lines executed:100.00% of 2
 No branches
-Calls executed:0.00% of 1
+Calls executed:100.00% of 1
 
 Function 'buyCard'
 Lines executed:0.00% of 13
@@ -284,9 +287,9 @@ Taken at least once:0.00% of 4
 No calls
 
 File 'dominion.c'
-Lines executed:3.87% of 569
+Lines executed:4.22% of 569
 Branches executed:0.96% of 417
 Taken at least once:0.72% of 417
-Calls executed:0.00% of 100
+Calls executed:1.00% of 100
 Creating 'dominion.c.gcov'
 

@@ -11,10 +11,36 @@
         -:    6:#include <stdlib.h>
         -:    7:
         -:    8:
-        -:    9:
+        -:    9://testing numHandCards(struct gameState *state) 
         -:   10:
-function main called 1 returned 100% blocks executed 100%
+function main called 1 returned 100% blocks executed 75%
         1:   11:int main(){
         -:   12:	
-        1:   13:	return 0;
-        -:   14:}
+        -:   13:	
+        1:   14:	struct gameState* teststate = malloc(sizeof(struct gameState));
+        -:   15:	int expectedvalue;
+        -:   16:	int temp;
+        -:   17:	
+        1:   18:	teststate->whoseTurn = 0;//initialize with player one 
+        1:   19:	teststate->handCount[0]=4;
+        1:   20:	expectedvalue=4;
+        1:   21:	temp= numHandCards(teststate);
+call    0 returned 100%
+        -:   22:	
+        1:   23:			if(temp == expectedvalue){//compare expected and returned value
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   24:			printf( "TEST PASSED: Values matched");
+call    0 returned 100%
+        1:   25:				printf("Expected value: %d   numHandCards function return value: %d\n",expectedvalue,temp);
+call    0 returned 100%
+        -:   26:		}else{
+    #####:   27:			printf( "TEST FAILED: Values do not match");
+call    0 never executed
+    #####:   28:				printf("Expected value: %d   numHandCards function return value: %d\n",expectedvalue,temp);
+call    0 never executed
+        -:   29:		}
+        -:   30:
+        1:   31:free(teststate);
+        1:   32:	return 0;
+        -:   33:}

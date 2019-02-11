@@ -35,6 +35,6 @@ int i;
 
 	}
 
-
+free(teststate);
 	return 0;
 }
