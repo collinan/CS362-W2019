@@ -1,4 +1,4 @@
-CFLAGS = -Wall -fpic -coverage -lm
+CFLAGS = -Wall
 
 testme:
 	gcc -o testme -g testme.c $(CFLAGS)
