@@ -37,15 +37,27 @@ Creating 'unittest2.c.gcov'
 
 
 unittest3
+TEST PASSED: Values matchedExpected value: 1   updateCoins function return total: 1
+TEST PASSED: Values matchedExpected value: 2   updateCoins function return total: 2
+TEST PASSED: Values matchedExpected value: 3   updateCoins function return total: 3
+TEST PASSED: Values matchedExpected value: 4   updateCoins function return total: 4
+TEST PASSED: Values matchedExpected value: 5   updateCoins function return total: 5
+TEST PASSED: Values matchedExpected value: 6   updateCoins function return total: 6
+TEST PASSED: Values matchedExpected value: 7   updateCoins function return total: 7
+TEST PASSED: Values matchedExpected value: 8   updateCoins function return total: 8
+TEST PASSED: Values matchedExpected value: 9   updateCoins function return total: 9
+TEST PASSED: Values matchedExpected value: 10   updateCoins function return total: 10
 Function 'main'
-Lines executed:100.00% of 2
-No branches
-No calls
+Lines executed:80.00% of 10
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+Calls executed:60.00% of 5
 
 File 'unittest3.c'
-Lines executed:100.00% of 2
-No branches
-No calls
+Lines executed:80.00% of 10
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+Calls executed:60.00% of 5
 Creating 'unittest3.c.gcov'
 
 
@@ -256,7 +268,7 @@ Taken at least once:0.00% of 46
 Calls executed:0.00% of 5
 
 Function 'kingdomCards'
-Lines executed:0.00% of 13
+Lines executed:100.00% of 13
 No branches
 No calls
 
@@ -272,7 +284,7 @@ Taken at least once:0.00% of 4
 No calls
 
 File 'dominion.c'
-Lines executed:1.58% of 569
+Lines executed:3.87% of 569
 Branches executed:0.96% of 417
 Taken at least once:0.72% of 417
 Calls executed:0.00% of 100

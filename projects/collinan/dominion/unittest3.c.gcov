@@ -11,11 +11,35 @@
         -:    6:#include <stdlib.h>
         -:    7:
         -:    8:
-        -:    9://int compare(const void* a, const void* b) 
+        -:    9://int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7, int k8, int k9, int k10) 
         -:   10:
-function main called 1 returned 100% blocks executed 100%
+function main called 1 returned 100% blocks executed 82%
         1:   11:int main(){
         -:   12:	
-        -:   13:	
-        1:   14:	return 0;
-        -:   15:}
+        1:   13:	int expectedvalue[]={1,2,3,4,5,6,7,8,9,10};
+        -:   14:	int i;
+        -:   15:	int *temp;
+        1:   16:	temp= kingdomCards(1,2,3,4,5,6,7,8,9,10);
+call    0 returned 100%
+        -:   17:	
+       11:   18:	for(i=0;i<10;i++){
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+       10:   19:	if(temp[i]==expectedvalue[i]){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+       10:   20:		printf( "TEST PASSED: Values matched");
+call    0 returned 100%
+       10:   21:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedvalue[i],temp[i]);
+call    0 returned 100%
+        -:   22:	}else{
+    #####:   23:		printf( "TEST Failed: Values do not matched");
+call    0 never executed
+    #####:   24:		printf("Expected value: %d   updateCoins function return total: %d\n",expectedvalue[i],temp[i]);
+call    0 never executed
+        -:   25:	}
+        -:   26:	}	
+        -:   27:	
+        -:   28:	
+        1:   29:	return 0;
+        -:   30:}
