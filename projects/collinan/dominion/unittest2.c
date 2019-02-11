@@ -32,6 +32,9 @@ int main(){
 	if(expectedTotal==teststate->coins){
 		printf( "TEST PASSED: Values matched");
 			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+	}else{
+		printf( "TEST Failed: Values do not matched");
+		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 	}
 
 
@@ -48,6 +51,9 @@ int main(){
 	if(expectedTotal==teststate->coins){
 		printf( "TEST PASSED: Values matched");
 			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+	}else{
+		printf( "TEST Failed: Values do not matched");
+		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 	}
 
 
@@ -60,9 +66,12 @@ int main(){
 	for(i=0;i<cardsInHand;i++){
 		teststate->hand[player][i]=gold;
 	}
-	if(expectedTotal==teststate){
+	if(expectedTotal==teststate->coins){
 		printf( "TEST PASSED: Values matched");
 			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+	}else{
+		printf( "TEST Failed: Values do not matched");
+		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 	}
 
 
@@ -78,6 +87,9 @@ int main(){
 	if(expectedTotal==teststate->coins){
 		printf( "TEST PASSED: Values matched");
 			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+	}else{
+		printf( "TEST Failed: Values do not matched");
+		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 	}
 
 

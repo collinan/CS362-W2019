@@ -1,8 +1,8 @@
         -:    0:Source:dominion.c
         -:    0:Graph:dominion.gcno
         -:    0:Data:dominion.gcda
-        -:    0:Runs:8
-        -:    0:Programs:8
+        -:    0:Runs:24
+        -:    0:Programs:24
         -:    1:#include "dominion.h"
         -:    2:#include "dominion_helpers.h"
         -:    3:#include "rngs.h"
@@ -461,9 +461,9 @@ branch  1 never executed
     #####:  343:  return count;
         -:  344:}
         -:  345:
-function whoseTurn called 4 returned 100% blocks executed 100%
-        4:  346:int whoseTurn(struct gameState *state) {
-        4:  347:  return state->whoseTurn;
+function whoseTurn called 12 returned 100% blocks executed 100%
+       12:  346:int whoseTurn(struct gameState *state) {
+       12:  347:  return state->whoseTurn;
         -:  348:}
         -:  349:
 function endTurn called 0 returned 0% blocks executed 0%
@@ -1690,24 +1690,24 @@ branch  1 never executed
     #####: 1211:  return 0;
         -: 1212:}
         -: 1213:
-function updateCoins called 1 returned 100% blocks executed 64%
-        1: 1214:int updateCoins(int player, struct gameState *state, int bonus)
+function updateCoins called 3 returned 100% blocks executed 64%
+        3: 1214:int updateCoins(int player, struct gameState *state, int bonus)
         -: 1215:{
         -: 1216:  int i;
         -: 1217:	
         -: 1218:  //reset coin count
-        1: 1219:  state->coins = 0;
+        3: 1219:  state->coins = 0;
         -: 1220:
         -: 1221:  //add coins for each Treasure card in player's hand
-        5: 1222:  for (i = 0; i < state->handCount[player]; i++)
+       15: 1222:  for (i = 0; i < state->handCount[player]; i++)
 branch  0 taken 80%
 branch  1 taken 20% (fallthrough)
         -: 1223:    {
-        4: 1224:      if (state->hand[player][i] == copper)
+       12: 1224:      if (state->hand[player][i] == copper)
 branch  0 taken 100% (fallthrough)
 branch  1 taken 0%
         -: 1225:	{
-        4: 1226:	  state->coins += 1;
+       12: 1226:	  state->coins += 1;
         -: 1227:	}
     #####: 1228:      else if (state->hand[player][i] == silver)
 branch  0 never executed
@@ -1724,9 +1724,9 @@ branch  1 never executed
         -: 1236:    }	
         -: 1237:
         -: 1238:  //add bonus
-        1: 1239:  state->coins += bonus;
+        3: 1239:  state->coins += bonus;
         -: 1240:
-        1: 1241:  return 0;
+        3: 1241:  return 0;
         -: 1242:}
         -: 1243:
         -: 1244://1 

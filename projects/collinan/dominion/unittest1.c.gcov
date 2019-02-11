@@ -14,7 +14,7 @@
         -:    9://testing int whoseTurn()
         -:   10:
         -:   11:
-function main called 1 returned 100% blocks executed 100%
+function main called 1 returned 100% blocks executed 82%
         1:   12:int main(){
         1:   13:	struct gameState* teststate = malloc(sizeof(struct gameState));
         -:   14:	int expected_value;
@@ -41,10 +41,15 @@ branch  1 taken 0%
 call    0 returned 100%
         4:   30:				printf("Expected value: %d   whoseTurn function return value: %d\n",expected_value,temp);
 call    0 returned 100%
-        -:   31:		}
-        -:   32:
-        -:   33:	}
-        -:   34:
+        -:   31:		}else{
+    #####:   32:			printf( "TEST FAILED: Values do not match");
+call    0 never executed
+    #####:   33:				printf("Expected value: %d   whoseTurn function return value: %d\n",expected_value,temp);
+call    0 never executed
+        -:   34:		}
         -:   35:
-        1:   36:	return 0;
-        -:   37:}
+        -:   36:	}
+        -:   37:
+        -:   38:
+        1:   39:	return 0;
+        -:   40:}

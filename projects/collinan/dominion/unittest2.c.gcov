@@ -12,7 +12,7 @@
         -:    7:
         -:    8:
         -:    9://testing updateCoins
-function main called 1 returned 100% blocks executed 78%
+function main called 1 returned 100% blocks executed 77%
         1:   10:int main(){
         -:   11:
         1:   12:	int player= 0;
@@ -45,74 +45,94 @@ branch  1 taken 0%
 call    0 returned 100%
         1:   34:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 call    0 returned 100%
-        -:   35:	}
-        -:   36:
-        -:   37:
-        -:   38:
-        -:   39:	//total is 8
-        1:   40:	cardsInHand=4;
-        1:   41:	teststate->handCount[0]=cardsInHand; //4 cards
-        1:   42:	teststate->coins=0;
-        1:   43:	bonus =0;
-        1:   44:	expectedTotal=8;
-        5:   45:	for(i=0;i<cardsInHand;i++){
+        -:   35:	}else{
+    #####:   36:		printf( "TEST Failed: Values do not matched");
+call    0 never executed
+    #####:   37:		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+call    0 never executed
+        -:   38:	}
+        -:   39:
+        -:   40:
+        -:   41:
+        -:   42:	//total is 8
+        1:   43:	cardsInHand=4;
+        1:   44:	teststate->handCount[0]=cardsInHand; //4 cards
+        1:   45:	teststate->coins=0;
+        1:   46:	bonus =0;
+        1:   47:	expectedTotal=8;
+        5:   48:	for(i=0;i<cardsInHand;i++){
 branch  0 taken 80%
 branch  1 taken 20% (fallthrough)
-        4:   46:		teststate->hand[player][i]=silver;
-        -:   47:	}
-        1:   48:	if(expectedTotal==teststate->coins){
+        4:   49:		teststate->hand[player][i]=silver;
+        -:   50:	}
+        1:   51:	if(expectedTotal==teststate->coins){
 branch  0 taken 0% (fallthrough)
 branch  1 taken 100%
-    #####:   49:		printf( "TEST PASSED: Values matched");
+    #####:   52:		printf( "TEST PASSED: Values matched");
 call    0 never executed
-    #####:   50:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+    #####:   53:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 call    0 never executed
-        -:   51:	}
-        -:   52:
-        -:   53:
-        -:   54:	//total is 12
-        1:   55:	cardsInHand=12;
-        1:   56:	teststate->handCount[0]=cardsInHand; //4 cards
-        1:   57:	teststate->coins=0;
-        1:   58:	bonus =0;
-        1:   59:	expectedTotal=4;
-       13:   60:	for(i=0;i<cardsInHand;i++){
+        -:   54:	}else{
+        1:   55:		printf( "TEST Failed: Values do not matched");
+call    0 returned 100%
+        1:   56:		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+call    0 returned 100%
+        -:   57:	}
+        -:   58:
+        -:   59:
+        -:   60:	//total is 12
+        1:   61:	cardsInHand=12;
+        1:   62:	teststate->handCount[0]=cardsInHand; //4 cards
+        1:   63:	teststate->coins=0;
+        1:   64:	bonus =0;
+        1:   65:	expectedTotal=4;
+       13:   66:	for(i=0;i<cardsInHand;i++){
 branch  0 taken 92%
 branch  1 taken 8% (fallthrough)
-       12:   61:		teststate->hand[player][i]=gold;
-        -:   62:	}
-        1:   63:	if(expectedTotal==teststate){
+       12:   67:		teststate->hand[player][i]=gold;
+        -:   68:	}
+        1:   69:	if(expectedTotal==teststate->coins){
 branch  0 taken 0% (fallthrough)
 branch  1 taken 100%
-    #####:   64:		printf( "TEST PASSED: Values matched");
+    #####:   70:		printf( "TEST PASSED: Values matched");
 call    0 never executed
-    #####:   65:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+    #####:   71:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 call    0 never executed
-        -:   66:	}
-        -:   67:
-        -:   68:
-        -:   69:	//total is 14
-        1:   70:	cardsInHand=12;
-        1:   71:	teststate->handCount[0]=cardsInHand; //4 cards
-        1:   72:	teststate->coins=0;
-        1:   73:	bonus =2;
-        1:   74:	expectedTotal=4;
-       13:   75:	for(i=0;i<cardsInHand;i++){
+        -:   72:	}else{
+        1:   73:		printf( "TEST Failed: Values do not matched");
+call    0 returned 100%
+        1:   74:		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+call    0 returned 100%
+        -:   75:	}
+        -:   76:
+        -:   77:
+        -:   78:	//total is 14
+        1:   79:	cardsInHand=12;
+        1:   80:	teststate->handCount[0]=cardsInHand; //4 cards
+        1:   81:	teststate->coins=0;
+        1:   82:	bonus =2;
+        1:   83:	expectedTotal=4;
+       13:   84:	for(i=0;i<cardsInHand;i++){
 branch  0 taken 92%
 branch  1 taken 8% (fallthrough)
-       12:   76:		teststate->hand[player][i]=gold;
-        -:   77:	}
-        1:   78:	if(expectedTotal==teststate->coins){
+       12:   85:		teststate->hand[player][i]=gold;
+        -:   86:	}
+        1:   87:	if(expectedTotal==teststate->coins){
 branch  0 taken 0% (fallthrough)
 branch  1 taken 100%
-    #####:   79:		printf( "TEST PASSED: Values matched");
+    #####:   88:		printf( "TEST PASSED: Values matched");
 call    0 never executed
-    #####:   80:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+    #####:   89:			printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
 call    0 never executed
-        -:   81:	}
-        -:   82:
-        -:   83:
-        1:   84:	return 0;
-        -:   85:}
-        -:   86:
-        -:   87:
+        -:   90:	}else{
+        1:   91:		printf( "TEST Failed: Values do not matched");
+call    0 returned 100%
+        1:   92:		printf("Expected value: %d   updateCoins function return total: %d\n",expectedTotal,teststate->coins);
+call    0 returned 100%
+        -:   93:	}
+        -:   94:
+        -:   95:
+        1:   96:	return 0;
+        -:   97:}
+        -:   98:
+        -:   99:

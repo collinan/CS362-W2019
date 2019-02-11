@@ -4,32 +4,35 @@ TEST PASSED: Values matchedExpected value: 1   whoseTurn function return value: 
 TEST PASSED: Values matchedExpected value: 2   whoseTurn function return value: 2
 TEST PASSED: Values matchedExpected value: 3   whoseTurn function return value: 3
 Function 'main'
-Lines executed:100.00% of 13
+Lines executed:86.67% of 15
 Branches executed:100.00% of 4
 Taken at least once:75.00% of 4
-Calls executed:100.00% of 3
+Calls executed:60.00% of 5
 
 File 'unittest1.c'
-Lines executed:100.00% of 13
+Lines executed:86.67% of 15
 Branches executed:100.00% of 4
 Taken at least once:75.00% of 4
-Calls executed:100.00% of 3
+Calls executed:60.00% of 5
 Creating 'unittest1.c.gcov'
 
 
 unittest1
 TEST PASSED: Values matchedExpected value: 4   updateCoins function return total: 4
+TEST Failed: Values do not matchedExpected value: 8   updateCoins function return total: 0
+TEST Failed: Values do not matchedExpected value: 4   updateCoins function return total: 0
+TEST Failed: Values do not matchedExpected value: 4   updateCoins function return total: 0
 Function 'main'
-Lines executed:87.50% of 48
+Lines executed:85.71% of 56
 Branches executed:100.00% of 16
 Taken at least once:75.00% of 16
-Calls executed:33.33% of 9
+Calls executed:52.94% of 17
 
 File 'unittest2.c'
-Lines executed:87.50% of 48
+Lines executed:85.71% of 56
 Branches executed:100.00% of 16
 Taken at least once:75.00% of 16
-Calls executed:33.33% of 9
+Calls executed:52.94% of 17
 Creating 'unittest2.c.gcov'
 
 

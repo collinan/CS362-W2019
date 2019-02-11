@@ -28,6 +28,9 @@ int i;
 		if(temp == expected_value){//compare expected and returned value
 			printf( "TEST PASSED: Values matched");
 				printf("Expected value: %d   whoseTurn function return value: %d\n",expected_value,temp);
+		}else{
+			printf( "TEST FAILED: Values do not match");
+				printf("Expected value: %d   whoseTurn function return value: %d\n",expected_value,temp);
 		}
 
 	}
