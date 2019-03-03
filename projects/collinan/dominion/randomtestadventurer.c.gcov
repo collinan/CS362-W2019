@@ -1,0 +1,192 @@
+        -:    0:Source:randomtestadventurer.c
+        -:    0:Graph:randomtestadventurer.gcno
+        -:    0:Data:randomtestadventurer.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://Filename: randomtestadventurer.c
+        -:    2://Testing: adventurer card
+        -:    3://Description: The adventurer card is a action card which allows you to flip through
+        -:    4://your deck and keep (add them to your deck) the first two treasure cards that are revealed.
+        -:    5:#include "dominion.h"
+        -:    6:#include "rngs.h"
+        -:    7:#include "dominion_helpers.h"
+        -:    8:#include <stdlib.h>
+        -:    9:#include <math.h>
+        -:   10:#include <stdio.h>
+        -:   11:#include <time.h>
+        -:   12:
+        -:   13:#define NUMTESTS 50
+        -:   14:
+        -:   15:#define NUMPLAYERS 2 //game rules state players can be between 2 and 4, and since adventurer_funt does
+        -:   16://not deal with setting up players we can fix number of players
+        -:   17:
+        -:   18:
+        1:   19:int main(){
+        -:   20:	struct gameState G;
+        1:   21:	int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
+        -:   22:           sea_hag, tribute, smithy};
+        -:   23:
+        1:   24:	srand(time(0));	
+        -:   25:	//set seed to a number larger that 0, so no user input is expected.
+        1:   26:	long seed = rand();
+        -:   27:	
+        -:   28:
+        1:   29:	int testpass=0;
+        1:   30:	int testfail=0;
+        -:   31:	
+        -:   32:
+        -:   33:int i,p,w; //loop variable	
+        -:   34:unsigned int num_cards_add_to_playerdeck;
+        -:   35:int who;
+        -:   36:int card;
+        1:   37:int yes_treasure=0;
+        -:   38:	int initial_handCount;
+        -:   39:	int initial_deckCount;
+        -:   40:	int initial_discardCount;
+        1:   41:	int handcountfail=0;
+        1:   42:	int deckcountfail=0;
+        -:   43:	int discardcountfail;
+        -:   44:
+        -:   45:
+        1:   46:	printf("\n**************************Begin test for Adventure Card***************************\n");
+        -:   47:/*******************************Begin Testing*******************************/
+       51:   48:for(p=0;p<NUMTESTS;p++){
+        -:   49://initialize the Game
+       50:   50:if (initializeGame(NUMPLAYERS, k, seed, &G) != 0){
+    #####:   51:printf("Error initializing game.\n");
+    #####:   52:exit(1);	
+        -:   53:}
+        -:   54:
+       50:   55:num_cards_add_to_playerdeck=rand()%501;
+       50:   56:who=G.whoseTurn;
+        -:   57:
+        -:   58://printf("Adding %d cards to players hand\n",num_cards_add_to_playerdeck);
+    14184:   59:for(i=0;i<num_cards_add_to_playerdeck;i++){
+        -:   60:		
+    14134:   61:		card=rand()%13;
+    14134:   62:	switch(card){
+        -:   63:		case 0:
+     1114:   64:				gainCard(adventurer,&G,1,who);
+     1114:   65:				break;
+        -:   66:		case 1:
+     1128:   67:				gainCard(gardens,&G,1,who);
+     1128:   68:				break;
+        -:   69:		case 2:
+     1044:   70:				gainCard(embargo,&G,1,who);
+     1044:   71:				break;
+        -:   72:		case 3:
+     1061:   73:				gainCard(village,&G,1,who);
+     1061:   74:				break;
+        -:   75:		case 4:
+     1054:   76:				gainCard(minion,&G,1,who);
+     1054:   77:				break;
+        -:   78:		case 5:
+     1105:   79:				gainCard(mine,&G,1,who);
+     1105:   80:				break;
+        -:   81:		case 6:
+     1113:   82:				gainCard(cutpurse,&G,1,who);
+     1113:   83:				break;
+        -:   84:		case 7:
+     1080:   85:				gainCard(sea_hag,&G,1,who);
+     1080:   86:				break;
+        -:   87:		case 8:
+     1080:   88:				gainCard(tribute,&G,1,who);
+     1080:   89:				break;
+        -:   90:		case 9:
+     1101:   91:				gainCard(smithy,&G,1,who);
+     1101:   92:				break;
+        -:   93:		case 10:
+     1089:   94:				gainCard(copper,&G,1,who);
+     1089:   95:				break;
+        -:   96:		case 11:
+     1085:   97:				gainCard(silver,&G,1,who);
+     1085:   98:				break;
+        -:   99:		case 12:
+     1080:  100:				gainCard(gold,&G,1,who);
+     1080:  101:				break;
+        -:  102:		
+        -:  103:	}
+        -:  104:	
+        -:  105:}
+       50:  106:shuffle(who,&G);//shuffling deck
+        -:  107:
+        -:  108:
+        -:  109:
+        -:  110://printf("\n*******************************Game initialized values*******************************\n");
+        -:  111://printf("Number of Players:%d\n",G.numPlayers);
+        -:  112://printf("Which player turn:%d\n",whoseTurn(&G));
+        -:  113://printf("\n*******************************Begin Testing*******************************\n");
+        -:  114:
+        -:  115:
+        -:  116://printf("*******************************Player %d info*******************************\n",0);
+        -:  117:	//printf("Initial player hand count: %d\n",G.handCount[0]);
+        -:  118:	//printf("Initial player deck count: %d\n",G.deckCount[0]);
+        -:  119:	//printf("Initial player discard count %d\n",G.discardCount[0]);
+       50:  120:	initial_handCount=G.handCount[0];
+       50:  121:	initial_deckCount=G.deckCount[0];
+       50:  122:	initial_discardCount=G.discardCount[0];
+        -:  123://printf("****************************************************************************\n");
+        -:  124:	
+        -:  125:	
+        -:  126:	
+        -:  127:/*---------------------------------------------------------------------------*/
+        -:  128:	
+        -:  129:	//printf("\n*******************************Call to cardEffect*******************************\n");
+       50:  130:	if(cardEffect(adventurer,0,0,0,&G,0,0) != 0){
+        -:  131:		
+    #####:  132:		testfail++;
+    #####:  133:		continue;
+        -:  134:	
+        -:  135:	}
+        -:  136:	
+       50:  137:	yes_treasure=0;
+        -:  138:	//check to see if deck has two treasure
+      624:  139:	for(w=0;w<G.deckCount[0];w++){
+      622:  140:	if (G.deck[0][w] == copper || G.deck[0][w] == silver || G.deck[0][w] == gold){
+      148:  141:		if(yes_treasure == 2){
+        -:  142:			//printf("Found two treasures in deck.");
+       48:  143:			break;
+        -:  144:		}
+      100:  145:		yes_treasure++;
+        -:  146:	}
+        -:  147:			
+        -:  148:	}
+        -:  149:	
+        -:  150:	
+        -:  151://printf("*******************************Post Player %d info*******************************\n",0);
+        -:  152:	//printf("Post player hand count: %d\n",G.handCount[0]);
+        -:  153:	//printf("Post player deck count: %d\n",G.deckCount[0]);
+        -:  154:	//printf("Post player discard count %d\n",G.discardCount[0]);
+        -:  155:	
+        -:  156:	
+        -:  157:	
+        -:  158:	//there were two treasures in deck but did not get added to player hand
+       50:  159:	if((initial_handCount+2) != G.handCount[0] && yes_treasure == 2 ){//treasure adding error
+        -:  160:		//printf("Error treasure adding\n");
+    #####:  161:		 handcountfail++;
+    #####:  162:		testfail++;
+    #####:  163:		continue;
+        -:  164:	//there were one treasures in deck but did not get added to player hand
+       50:  165:	}else if((initial_handCount+1) != G.handCount[0] && yes_treasure == 1 ){
+        -:  166:		//printf("Error treasure adding\n");
+       50:  167:	}else if((initial_discardCount+initial_deckCount+initial_handCount) !=(G.handCount[0]+G.deckCount[0]+G.discardCount[0]) ){
+       50:  168:		testfail++;
+       50:  169:		deckcountfail++;
+       50:  170:		continue;
+        -:  171:		
+        -:  172:	}
+        -:  173:	
+    #####:  174:	testpass++;
+        -:  175:
+        -:  176:	
+        -:  177:	}
+        1:  178:	printf("Number of fails due to treasure not added to hand:%d\n",handcountfail);
+        1:  179:	printf("Number of fails due to players deck count being off:%d\n",deckcountfail);
+        1:  180:	printf("Tests Passed:%d\n",testpass);
+        1:  181:	printf("Tests Failed:%d\n",testfail);
+        1:  182:	printf("Total Tests:%d\n",NUMTESTS);
+        1:  183:	printf("****************************************************************************\n",i);
+        1:  184:	return 0;
+        -:  185:
+        -:  186:}
+        -:  187:

@@ -100,6 +100,7 @@ int main (int argc, char** argv) {
           else if (handCard(i, &G) == gold){
             playCard(i, -1, -1, -1, &G);
             money += 3;
+	hints.ai_family = AF_UNSPEC; //use IPv4 or IPv6, which ever
           }
           i++;
         }
