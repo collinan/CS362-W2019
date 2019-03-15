@@ -237,7 +237,7 @@ public class UrlValidatorTest extends TestCase {
 			   testPath[Pa].item,
 			   testUrlQuery[Q].item);
 	   
-	  // System.out.println(test_URL);
+	   System.out.println(test_URL);
 	   
 	  // long options =
 	  //          UrlValidator.ALLOW_2_SLASHES
