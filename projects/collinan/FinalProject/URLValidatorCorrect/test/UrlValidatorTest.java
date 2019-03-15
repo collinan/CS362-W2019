@@ -27,7 +27,8 @@ import junit.framework.TestCase;
  */
 public class UrlValidatorTest extends TestCase {
 
-   private final boolean printStatus = false;
+   //private final boolean printStatus = false;
+   private final boolean printStatus = true;
    private final boolean printIndex = false;//print index that indicates current scheme,host,port,path, query test were using.
 
    public UrlValidatorTest(String testName) {
@@ -36,12 +37,15 @@ public class UrlValidatorTest extends TestCase {
 
    @Override
 protected void setUp() {
+	   
       for (int index = 0; index < testPartsIndex.length - 1; index++) {
          testPartsIndex[index] = 0;
       }
    }
 
    public void testIsValid() {
+	   System.out.print("first line executed 1");
+	   System.out.print('0');
         testIsValid(testUrlParts, UrlValidator.ALLOW_ALL_SCHEMES);
         setUp();
         long options =
@@ -53,6 +57,8 @@ protected void setUp() {
    }
 
    public void testIsValidScheme() {
+	   System.out.print("first line executed 2");
+	   System.out.print('+');
       if (printStatus) {
          System.out.print("\n testIsValidScheme() ");
       }
@@ -332,6 +338,7 @@ protected void setUp() {
     }
 
     static boolean incrementTestPartsIndex(int[] testPartsIndex, Object[] testParts) {
+    	
       boolean carry = true;  //add 1 to lowest order part.
       boolean maxIndex = true;
       for (int testPartsIndexIndex = testPartsIndex.length - 1; testPartsIndexIndex >= 0; --testPartsIndexIndex) {
@@ -408,6 +415,7 @@ protected void setUp() {
         assertTrue(validator.isValid("http://test.xn--o3cw4h")); // Thailand
         assertTrue(validator.isValid("http://test.xn--pgbs0dh")); // Tunisia
         assertTrue(validator.isValid("http://test.xn--mgbaam7a8h")); // United Arab Emirates
+       
         // Proposed internationalized ccTLDs
 //        assertTrue(validator.isValid("http://test.xn--54b7fta0cc")); // Bangladesh
 //        assertTrue(validator.isValid("http://test.xn--90ae")); // Bulgaria
