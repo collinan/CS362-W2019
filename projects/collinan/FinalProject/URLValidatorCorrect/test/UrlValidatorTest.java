@@ -18,6 +18,8 @@
 
 
 
+import java.util.Random;
+
 import junit.framework.TestCase;
 
 /**
@@ -28,7 +30,7 @@ import junit.framework.TestCase;
 public class UrlValidatorTest extends TestCase {
 
    //private final boolean printStatus = false;
-   private final boolean printStatus = true;
+   private final boolean printStatus = false;
    private final boolean printIndex = false;//print index that indicates current scheme,host,port,path, query test were using.
 
    public UrlValidatorTest(String testName) {
@@ -43,9 +45,10 @@ protected void setUp() {
       }
    }
 
+   
    public void testIsValid() {
-	   System.out.print("first line executed 1");
-	   System.out.print('0');
+	   
+	   
         testIsValid(testUrlParts, UrlValidator.ALLOW_ALL_SCHEMES);
         setUp();
         long options =
@@ -57,8 +60,7 @@ protected void setUp() {
    }
 
    public void testIsValidScheme() {
-	   System.out.print("first line executed 2");
-	   System.out.print('+');
+	   
       if (printStatus) {
          System.out.print("\n testIsValidScheme() ");
       }
@@ -566,6 +568,7 @@ protected void setUp() {
                           new ResultPair("/..//file", false),
                           new ResultPair("/test1//file", false)
    };
+  
    //Test allow2slash, noFragment
    ResultPair[] testUrlPathOptions = {new ResultPair("/test1", true),
                                     new ResultPair("/t123", true),
