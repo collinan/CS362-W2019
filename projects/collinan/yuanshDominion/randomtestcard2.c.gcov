@@ -1,0 +1,137 @@
+        -:    0:Source:randomtestcard2.c
+        -:    0:Graph:randomtestcard2.gcno
+        -:    0:Data:randomtestcard2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://Filename: randomtestcard2.c
+        -:    2://Testing: smithy card
+        -:    3://Description: 
+        -:    4:#include "dominion.h"
+        -:    5:#include "rngs.h"
+        -:    6:#include "dominion_helpers.h"
+        -:    7:#include <stdlib.h>
+        -:    8:#include <math.h>
+        -:    9:#include <stdio.h>
+        -:   10:#include <time.h>
+        -:   11:
+        -:   12:#define NUMTESTS 50
+        -:   13:#define NUMPLAYERS 2 //game rules state players can be between 2 and 4, and since adventurer_funt does
+        -:   14://not deal with setting up players we can fix number of players
+        -:   15:
+        -:   16:
+        -:   17:int main(){
+        -:   18:	struct gameState G;
+        1:   19:	int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
+        -:   20:           sea_hag, tribute, smithy};
+        -:   21:
+        1:   22:	srand(time(0));	
+        -:   23:	//set seed to a number larger that 0, so no user input is expected.
+        1:   24:	long seed = rand();
+        -:   25:	
+        -:   26:	unsigned int num_cards_add_to_playerdeck;
+        -:   27:	int who;
+        -:   28:	
+        1:   29:	int testpass=0;
+        1:   30:	int testfail=0; 
+        -:   31:	int card;
+        -:   32:	int initial_handCount;
+        -:   33:	int initial_deckCount;
+        -:   34:	int initial_discardCount;
+        -:   35:	int initial_numActions;
+        1:   36:	int addaction_fail=0;
+        1:   37:	int add_rm_card_fail=0;
+        -:   38:	int p,i;
+      102:   39:for(p=0;p<NUMTESTS;p++){
+        -:   40://initialize the Game
+       50:   41:if (initializeGame(NUMPLAYERS, k, seed, &G) != 0){
+    #####:   42:printf("Error initializing game.\n");
+    #####:   43:exit(1);	
+        -:   44:}
+        -:   45:
+       50:   46:num_cards_add_to_playerdeck=rand()%501;
+       50:   47:who=G.whoseTurn;
+        -:   48://printf("Adding %d cards to players hand\n",num_cards_add_to_playerdeck);
+    23194:   49:for(i=0;i<num_cards_add_to_playerdeck;i++){
+        -:   50:		
+    23094:   51:		card=rand()%13;
+    23094:   52:	switch(card){
+        -:   53:		case 0:
+      860:   54:				gainCard(adventurer,&G,1,who);
+      860:   55:				break;
+        -:   56:		case 1:
+      923:   57:				gainCard(gardens,&G,1,who);
+      923:   58:				break;
+        -:   59:		case 2:
+      865:   60:				gainCard(embargo,&G,1,who);
+      865:   61:				break;
+        -:   62:		case 3:
+      880:   63:				gainCard(village,&G,1,who);
+      880:   64:				break;
+        -:   65:		case 4:
+      856:   66:				gainCard(minion,&G,1,who);
+      856:   67:				break;
+        -:   68:		case 5:
+      924:   69:				gainCard(mine,&G,1,who);
+      924:   70:				break;
+        -:   71:		case 6:
+      872:   72:				gainCard(cutpurse,&G,1,who);
+      872:   73:				break;
+        -:   74:		case 7:
+      934:   75:				gainCard(sea_hag,&G,1,who);
+      934:   76:				break;
+        -:   77:		case 8:
+      881:   78:				gainCard(tribute,&G,1,who);
+      881:   79:				break;
+        -:   80:		case 9:
+      860:   81:				gainCard(smithy,&G,1,who);
+      860:   82:				break;
+        -:   83:		case 10:
+      882:   84:				gainCard(copper,&G,1,who);
+      882:   85:				break;
+        -:   86:		case 11:
+      879:   87:				gainCard(silver,&G,1,who);
+      879:   88:				break;
+        -:   89:		case 12:
+      931:   90:				gainCard(gold,&G,1,who);
+      931:   91:				break;
+        -:   92:		
+        -:   93:	}
+        -:   94:	
+    11547:   95:}
+       50:   96:shuffle(who,&G);//shuffling deck
+        -:   97:
+        -:   98:
+        -:   99:
+        -:  100:
+       50:  101:	 initial_handCount=G.handCount[0];
+       50:  102:	 initial_deckCount=G.deckCount[0];
+       50:  103:	 initial_discardCount=G.discardCount[0];
+       50:  104:	 initial_numActions=G.numActions;
+        -:  105:	 
+       50:  106:	 if(cardEffect(smithy,0,0,0,&G,0,0) != 0){
+        -:  107:		
+    #####:  108:		testfail++;
+    #####:  109:		continue;
+        -:  110:	
+        -:  111:	}
+        -:  112:	
+        -:  113:	 //check numbers of cards in player hand
+       50:  114:	 if((initial_handCount+3)!=G.handCount[0] || (initial_discardCount+1)!=G.discardCount[0] ){
+        -:  115:		 //printf("Adding and removing card from hand failed\n");
+       50:  116:		 testfail++;
+       50:  117:		 add_rm_card_fail++;
+       50:  118:	 }
+        -:  119:	 
+        -:  120:	 
+       50:  121:	 testpass++;
+        -:  122:	
+       50:  123:}
+        -:  124:	
+        -:  125:	
+        1:  126:	printf("Fails due Adding and removing card:%d\n",add_rm_card_fail);
+        1:  127:	printf("Tests Passed:%d\n",testpass);
+        1:  128:	printf("Tests Failed:%d\n",testfail);
+        1:  129:	printf("Total Tests:%d\n",NUMTESTS);
+        -:  130:	
+        1:  131:	return 0;
+        -:  132:}
